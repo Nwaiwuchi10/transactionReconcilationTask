@@ -1,0 +1,4 @@
+transactionId,,timestamp,,,amount,,currency,,status
+TX1001,,2025-08-03T13:45:00Z,,,,,USD,,SUCCESS
+TX1002,,2025-08-03T14:10:00Z,,,250,,EUR,,
+TX1003,,2025-08-03T15:20:00Z,,,1000,,NGN,,SUCCESS
