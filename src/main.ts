@@ -31,10 +31,11 @@ async function bootstrap() {
   app.use(bodyParser.json({ limit: '50mb' }));
   app.enableCors({
     origin: [
-      'https://transaction-processor-ashen.vercel.app',
-      'https://transaction-reconcilation-task.vercel.app',
+      'https://transaction-processor-ashen.vercel.app', // ✅ frontend on Vercel
+      'http://localhost:5173', // ✅ local dev
     ],
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
   });
 
