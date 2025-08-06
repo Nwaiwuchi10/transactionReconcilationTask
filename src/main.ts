@@ -29,15 +29,7 @@ async function bootstrap() {
     prefix: '/uploads/',
   });
   app.use(bodyParser.json({ limit: '50mb' }));
-  app.enableCors({
-    origin: [
-      'https://transaction-processor-ashen.vercel.app', // ✅ frontend on Vercel
-      'http://localhost:5173', // ✅ local dev
-    ],
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true,
-  });
+  app.enableCors();
 
   await app.listen(process.env.PORT ?? 4000);
 }
