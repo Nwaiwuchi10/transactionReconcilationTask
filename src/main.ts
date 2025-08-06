@@ -30,7 +30,10 @@ async function bootstrap() {
   });
   app.use(bodyParser.json({ limit: '50mb' }));
   app.enableCors({
-    origin: '*',
+    origin: [
+      'https://transaction-processor-ashen.vercel.app',
+      'https://transaction-reconcilation-task.vercel.app',
+    ],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     credentials: true,
   });
