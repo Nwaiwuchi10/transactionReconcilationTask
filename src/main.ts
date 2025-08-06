@@ -29,7 +29,11 @@ async function bootstrap() {
     prefix: '/uploads/',
   });
   app.use(bodyParser.json({ limit: '50mb' }));
-  app.enableCors();
+  app.enableCors({
+    origin: '*',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    credentials: true,
+  });
 
   await app.listen(process.env.PORT ?? 4000);
 }
