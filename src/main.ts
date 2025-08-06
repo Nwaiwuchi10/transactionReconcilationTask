@@ -30,6 +30,7 @@ async function bootstrap() {
   });
   app.use(bodyParser.json({ limit: '50mb' }));
   app.enableCors();
+
   await app.listen(process.env.PORT ?? 4000);
 }
 bootstrap();
