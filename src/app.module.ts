@@ -1,13 +1,18 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { TransactionsModule } from './transactions/transactions.module';
+
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config';
-import { ReconciliationModule } from './reconciliation/reconciliation.module';
-import { MusicModule } from './music/music.module';
-import { TransModule } from './trans/trans.module';
-import { FlaggedTransactionModule } from './flagged-transaction/flagged-transaction.module';
+import { UsersModule } from './users/users.module';
+import { InvestmentplanModule } from './investmentplan/investmentplan.module';
+import { UsersinvestmentplanModule } from './usersinvestmentplan/usersinvestmentplan.module';
+import { DepositModule } from './deposit/deposit.module';
+import { TradingaccountModule } from './tradingaccount/tradingaccount.module';
+
+import { AdminModule } from './admin/admin.module';
+import { AdminwalletModule } from './adminwallet/adminwallet.module';
+
 import config from './config/config';
 
 @Module({
@@ -18,11 +23,14 @@ import config from './config/config';
       load: [config],
     }),
     MongooseModule.forRoot(process.env.MONGO_URI || ''),
-    TransactionsModule,
-    ReconciliationModule,
-    MusicModule,
-    TransModule,
-    FlaggedTransactionModule,
+    UsersModule,
+    InvestmentplanModule,
+    UsersinvestmentplanModule,
+    DepositModule,
+    TradingaccountModule,
+
+    AdminModule,
+    AdminwalletModule,
   ],
   controllers: [AppController],
   providers: [AppService],
